@@ -15,31 +15,6 @@ The system currently provides:
 - LangGraph-based workflow orchestration
 - Conditional tool routing
 
-## Architecture
-
-```text
-User Question
-      |
-      v
-   Agent / LLM
-      |
-      v
-Need a Tool?
-   /       \
- Yes        No
-  |          |
-  v          v
-Tools       END
-  |
-  v
-Tool Result
-  |
-  v
-Agent / LLM
-  |
-  v
-Final Answer
-
 Tech Stack
 - Python
 - Mistral AI
@@ -47,6 +22,7 @@ Tech Stack
 - LangGraph
 - Requests
 - python-dotenv
+
 Project Structure
 agentic_ai/
 |
@@ -86,22 +62,6 @@ The main components are:
 - Agent Node — sends messages to the LLM
 - Tool Node — executes selected tools
 - Conditional Edge — determines whether the workflow should execute a tool or finish
-The workflow can loop between the agent and tools:
-START
-  |
-  v
-Agent
-  |
-  v
-Tool required?
- /        \
-Yes        No
- |          |
- v          v
-Tools       END
- |
- v
-Agent
 
 Setup
 1. Clone the repository
@@ -153,7 +113,8 @@ This project was built to understand and demonstrate:
 - Edges
 - Conditional routing
 - Tool execution loops
-Future Improvements
+
+
 Possible improvements include:
 - Add more research tools
 - Add web search
@@ -164,5 +125,31 @@ Possible improvements include:
 - Add Docker support
 - Add logging and monitoring
 - Deploy the application
+  
 Learning Objective
 The main goal of this project is to understand how an LLM-based application can move from a simple fixed chain to a dynamic agentic workflow where the model can select and use tools based on the user's request.
+
+## Architecture
+
+```text
+User Question
+      |
+      v
+   Agent / LLM
+      |
+      v
+Need a Tool?
+   /       \
+ Yes        No
+  |          |
+  v          v
+Tools       END
+  |
+  v
+Tool Result
+  |
+  v
+Agent / LLM
+  |
+  v
+Final Answer
